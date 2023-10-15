@@ -21,7 +21,7 @@
 #sommaire{
 	position:fixed;
 
-	width:350px;
+	width:300px;
 	height:calc(100% - 80px);
 	overflow-y:auto;
 	/*position:absolute;*/
@@ -42,7 +42,6 @@
 	background-image:-o-linear-gradient(#013037, #1c5f69); /* Opera 
 	background-image:-ms-linear-gradient(#013037, #1c5f69); /* IE */
 	z-index:500;
-
 }
 
 #header{
@@ -58,7 +57,7 @@
 	z-index:600;
 	line-height:15px;
 	height:80px;
-	width:350px;
+	width:300px;
 	overflow:hidden;
 	padding-top:10px;
 
@@ -135,7 +134,7 @@
 	text-align:left;
 }
 
-/* Classe des items de menu sélectionné */
+/* Classe des items de menu sï¿½lectionnï¿½ */
 .itemSelect{
 	border-radius: 2px/2px;
 	font-size:14px;
