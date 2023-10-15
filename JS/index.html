@@ -19,11 +19,11 @@
   <body>
 	<!-- Une ou plusieurs balises HTML pour définir le contenu du document -->
 	<header id="header">
-		<img id="logo" src="images/_logo.png"/>
+		<!--<img id="logo" src="images/_logo.png"/>-->
 		<div class="separation"><span> | </span></div>
 		<div id="headlines">
 			<span id="headLine1">JAVASCRIPT</span><br/>
-			<span id="headLine2">Maxime Dressenetto</span><br/>
+			<span id="headLine2">CCI Formation</span><br/>
 			<span id="headLine3"></span>
 		</div>
 		<!--<div class="separation"><span> | </span></div>-->
@@ -60,8 +60,8 @@
 		<div id="anim" class="menu" data-nbpage="3">ANIMATION</div>
 		<ul id="menu4_1" class="sousMenu">
 			<li id="anim_1" class="item"><a>Gestion du temps</a></li>
-			<li id="anim_2" class="item"><a>Effets prédéfinis</a></li>
-			<li id="anim_3" class="item"><a>Fonction Animate</a></li>
+			<li id="anim_2" class="item"><a>Évènements d'animations</a></li>
+			<li id="anim_3" class="item"><a>GSAP Animation</a></li>
 		</ul>
 		
 		<div id="event" class="menu" data-nbpage="3">EVENEMENTS</div>
@@ -90,7 +90,8 @@
 <p>Il permet notamment d’ajouter de l’interactivité, de manipuler le contenu du page (modification des éléments du DOM) et agir sur le CSS.</p>
 <p>Javascript est interprété de façon synchrone : c’est à dire que les tâches sont exécutées dans l’ordre imposé par le code et que chaque tâche doit être terminée pour que la suite du programme soit exécutée.</p>
 					<br/>
-					<strong>JQuery c'est : </strong>une "boite à outils" développée en <b>javascript pour faciliter</b> le développement des sites web.
+					<!--
+						<strong>JQuery c'est : </strong>une "boite à outils" développée en <b>javascript pour faciliter</b> le développement des sites web.
 					<br/>
 						<ul>
 							<li>des fonctions permettant <b>d'animer des élements</b> d'une page html,</li>
@@ -98,7 +99,7 @@
 							<li>des fonctions pour ajouter de l'<b>interactivité (événements clavier, souris, navigateur...)</b>,</li>
 							<li>...</li>
 						</ul>
-					
+					-->
 					<span class="back">( > Retour au sommaire)</span>
 				
 			</section>	
@@ -165,21 +166,20 @@
 			&ltmeta charset="UTF-8"&gt;
 			&lttitle&gt; JS-Game&lt;/title&gt;
 		&lt;/head&gt;
-
 		&lt;body&gt;
-			<!-- ... Contenu HTML -->
-
-			<!-- Intégration de jQuery -->
-			&lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt;
-			<!-- Intégration du fichier game.js -->
+			&lt;!-- ... Contenu HTML --&gt;
+			&lt;!-- Intégration du fichier game.js --&gt;
 			&lt;script src="js/game.js"&gt;&lt;/script&gt;
-
 		&lt;/body&gt;
 	&lt;/html&gt;
 </code></pre>
 
-<p>-> Dans le fichier '<b>game.js</b>' écrire :
+<!-- Intégration de jQuery
+	&lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt;
+-->
 
+<p>-> Dans le fichier '<b>game.js</b>' écrire :
+<!--
 <pre class="theme-atom-one-dark" ><code>$(document).ready(function()
 {
 	// Ici le document est chargé, je peux écrire mon code...
@@ -192,7 +192,7 @@
 	console.log("Le fichier game.js a bien été chargé");
 	
 });</code></pre>
-
+-->
 <pre class="theme-atom-one-dark" ><code>
 document.addEventListener("DOMContentLoaded", (event) => {
 	// Ici le document est chargé, je peux écrire mon code...
@@ -332,7 +332,7 @@ if (nbVies > 0 && !isGameStarted)
 			<pre class="theme-atom-one-dark" ><code>var decors = ["désert", "jungle", "ville" ] ;
 let i ;
 
-for (i=0 ; i  decors.length ; i++)
+for(i=0; i < decors.length; i++)
 {
 	console.log (" Decor "  +  (i+1) + " : " + decors[i]) ;
 }</code></pre>
@@ -368,7 +368,7 @@ function starGame()
 // Fonction addScore
 function addScore( nbPoints )
 {
-	var newScore = score + nbPoints;
+	let newScore = score + nbPoints;
 	return newScore;
 }
 
@@ -434,27 +434,29 @@ score = addScore(10) ;
 		<div class="container">
 		<strong>Sélection d'un type de balise HTML :</strong>
 		<br/>
-		<pre class="theme-atom-one-dark"><code>document.getElementsByTagName('balise') // JS</code></pre>
-		<pre class="theme-atom-one-dark"><code>$('balise') // jQuery</code></pre>
+		<pre class="theme-atom-one-dark"><code>// Retourne les élements de type "balise"
+let mesElements = document.getElementsByTagName('balise')</code></pre>
+		<!--<pre class="theme-atom-one-dark"><code>$('balise') // jQuery</code></pre>-->
 		<br/>
 
 		<strong>Sélection d'un élément par son 'id' :</strong>
 		<br/>
-		<pre class="theme-atom-one-dark"><code>document.getElementById('id') // JS</code></pre>
-		<pre class="theme-atom-one-dark"><code>$('#id') // jQuery</code></pre>
+		<pre class="theme-atom-one-dark"><code>//Retourne l'élément quie a pour id "id"
+let monElement = document.getElementById('id');</code></pre>
+		<!--<pre class="theme-atom-one-dark"><code>$('#id') // jQuery</code></pre>-->
 		<br/>
-
 		<strong>Sélection d'un élément par sa 'class' :</strong>
 		<br/>
-		<pre class="theme-atom-one-dark"><code>document.getElementsByClassName('class') // JS</code></pre>
-		<pre class="theme-atom-one-dark"><code>$('.class') // jQuery</code></pre>
+		<pre class="theme-atom-one-dark"><code>document.getElementsByClassName('class')</code></pre>
+		<!--<pre class="theme-atom-one-dark"><code>$('.class') // jQuery</code></pre>-->
 		<br/>
 		<strong>Sélection par sélecteur CSS</strong>
-		<pre class="theme-atom-one-dark"><code>document.querySelector('selecteur css') // JS
-/* retourne le 1er élément correspondant au sélecteur CSS passé en paramètre */</code></pre>
-		<pre class="theme-atom-one-dark"><code>document.querySelectorAll('selecteur css') // JS
-/* retourne l'ensemble des éléments correspondants au sélecteur CSS passé en paramètre */</code></pre>
-		<pre class="theme-atom-one-dark"><code>$('selecteur css') // jQuery</code></pre>
+		<pre class="theme-atom-one-dark"><code>/* retourne le 1er élément correspondant au sélecteur CSS passé en paramètre */
+let monElement = document.querySelector('selecteur css')</code></pre>
+		<pre class="theme-atom-one-dark"><code>/* retourne l'ensemble des éléments correspondants au sélecteur CSS passé en paramètre */
+let mesElements = document.querySelectorAll('selecteur css')
+</code></pre>
+		<!--<pre class="theme-atom-one-dark"><code>$('selecteur css') // jQuery</code></pre>-->
 		</div>	
 		<br/>
 		<span class="back">( > Retour au sommaire)</span>
@@ -465,15 +467,18 @@ score = addScore(10) ;
 	<section id="jquery_2_content" class="content jquery_content">
 		<div id="titre_jquery_2" class="title_content title_jquery">HTML & CSS | Parcours des HTML sélectionnés</div>
 		<div class="container">
-			<strong>JS :</strong>
+			<strong>forEach :</strong> La méthode "forEach" permet de parcourir la liste des éléments sélectionnés :
 			<pre class="theme-atom-one-dark"><code>let myElements = document.querySelectorAll(".item");
 
 myElements.forEach((item, index)=>{
-	console.log(index, item);
+	//Insctructions à exécter pour chacun des éléments de la liste
 	// item représente l'élément courrant
 	// index représente la position de l'élément dans la liste
+
+	console.log(index, item);
 });</code></pre>
 
+<!--
 <strong>jQuery :</strong>
 			<pre class="theme-atom-one-dark"><code>let myElements = $(".item");
 
@@ -481,7 +486,7 @@ myElements.each(function( index ){
 	console.log(index, $(this));
 	// $(this) représente l'élément courrant
 	// index représente la position de l'élément dans la liste
-}</code></pre>
+}</code></pre>-->
 		</div>
 	</section>
 
@@ -490,21 +495,29 @@ myElements.each(function( index ){
 		<div class="container">
 			<strong>Ajouter une class à un élément HTML :</strong>
 			<br/>
-			<pre class="theme-atom-one-dark"><code>document.getElementById('id').classList.add('nomClass'); // JS</code></pre>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('id').classList.add('nomClass');</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#monElement').addClass('nomClass'); // jQuery</code></pre>
+			-->
 			<br/>
 			<strong>Retirer une class à un élément :</strong>
 			<br/>
-			<pre class="theme-atom-one-dark"><code>document.getElementById('id').classList.remove('nomClass'); // JS</code></pre>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('id').classList.remove('nomClass');</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#monElement').removeClass('nomClass'); // jQuery</code></pre>
+			-->
 			<br/>
 			<strong>Activer/Désactiver une class sur un élément :</strong>
 			<pre class="theme-atom-one-dark"><code>document.getElementById('id').classList.toggle('nomClass'); // JS</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#monElement').toggleClass('nomClass'); // jQuery</code></pre>
+			-->
 			<br/>
 			<strong>NB : pour savoir si un élement possède une class nommée "nomClass", on écrit :</strong>
 			<br/>
+			<!--
 			<pre class="theme-atom-one-dark"><code>if($('#monElement').hasClass( 'nomClass' )) { /* ...instructions */ }</code></pre>
+			-->
 			<pre class="theme-atom-one-dark"><code>if(document.getElementById('id').classList.contains( 'nomClass' )) { /* ...instructions */ }</code></pre>		
 			
 			
@@ -518,18 +531,32 @@ myElements.each(function( index ){
 		<div id="titre_jquery_4" class="title_content title_jquery">HTML & CSS | Modification CSS 2/2 (propriétés)</div>
 		<div class="container">
 			<strong>Attribuer une valeur à une propriété CSS :</strong>
-			<br/>
 			<pre class="theme-atom-one-dark"><code>document.getElementById('monElement').style.nomPropriete = 'valeur'; // JS</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#monElement').css('nomPropriete', 'valeur'); // jQuery</code></pre>
 			<br/>
 			<strong>Modifier la valeur de plusieurs propriétés CSS :</strong>
 			<br/>
 			<pre class="theme-atom-one-dark"><code>$('#monElement').css({propriete1:valeur1, propriete2:valeur2, propriete3:valeur3});</code></pre>
+			-->
 			<br/>
 			<strong>NB :</strong> Pour connaitre la valeur associée à une propriété on peut utiliser :
-			<br/>
 			<pre class="theme-atom-one-dark"><code>console.log( document.getElementById('monElement').style.nomPropriete );</code></pre>
+			
+			<strong>Connaitre les coordonnées d'un éléments dans l'écran :</strong>
+			<pre class="theme-atom-one-dark"><code>let objRect = monElement.getBoundingClientRect();
+
+console.log( objRect.x );
+console.log( objRect.y );
+console.log( objRect.top );
+console.log( objRect.left );
+console.log( objRect.right );
+console.log( objRect.bottom );
+console.log( objRect.width );
+console.log( objRect.height );</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>console.log( $('#monElement').css('nomPropriete') );</code></pre>
+			-->
 		</div>
 			<br/>
 			<span class="back">( > Retour au sommaire)</span>
@@ -540,27 +567,38 @@ myElements.each(function( index ){
 		
 		<div id="titre_jquery_5" class="title_content title_jquery">HTML & CSS | Modification HTML</div>
 		<div class="container">
-			<strong>Modifier la valeur d'un attribut HTML :</strong>
-			<br/>
-			<pre class="theme-atom-one-dark"><code>document.getElementById('image1').setAttribute('src', 'images/paysage.jpg'); // JS"</code></pre>
 
+			<strong>Connaitre la valeur d'un attribut HTML :</strong>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('image').getAttribute('src');</code></pre>
+
+			<strong>Modifier la valeur d'un attribut HTML :</strong>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('image').setAttribute('src', 'images/paysage.jpg');</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#image1').attr('src', 'images/paysage.jpg'); // jQuery"</code></pre>
+			-->
 			<br/>
 			<strong>Définir le contenu HTML d'une balise :</strong>
-			<br/>
-			<pre class="theme-atom-one-dark"><code>document.getElementById('monElement').innerHTML = '<p>Bonjour !</p>'; // JS</code></pre>
-
+			<pre class="theme-atom-one-dark"><code>document.getElementById('monElement').innerHTML = '<p>Bonjour !</p>';</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#monElement').html('<p>Bonjour !</p>'); // jQuery</code></pre>
+			-->
 			<br/>
-			<strong>Crée un élément HTML :</strong>
-			<pre class="theme-atom-one-dark"><code>var monDiv = document.createElement('div')); // JS</code></pre>
-
+			<strong>Créer un élément HTML :</strong>
+			<pre class="theme-atom-one-dark"><code>let newDiv = document.createElement('div');</code></pre>
+			<!--
 			<pre class="theme-atom-one-dark"><code>var monDiv = $('&lt;div&gt;&lt;/div&gt;'); // jQuery</code></pre>
+			-->
 			<br/>
 
-			<strong>Ajouter du contenu HTML à une balise :</strong>
-			<pre class="theme-atom-one-dark"><code>document.getElementById('maListe').appendChild(document.createElement('li')); // JS</code></pre>
+			<strong>Ajouter du contenu HTML à un élément :</strong>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('monElement').appendChild(newDiv);</code></pre>
+			
+			<strong>Retirer l'enfant d'un élément :</strong>
+			<pre class="theme-atom-one-dark"><code>document.getElementById('monElement').removeChild(newDiv);</code></pre>
+
+			<!--
 			<pre class="theme-atom-one-dark"><code>$('#maListe').append('<li>item de liste</li>'); // jQuery</code></pre>
+			-->
 			<br/>
 		</div>
 			<br/>
@@ -574,16 +612,21 @@ myElements.each(function( index ){
 		<div class="container">	
 
 		<strong>Délai :</strong><br/>
-		<pre class="theme-atom-one-dark"><code>setTimeout(maFonction, 500); // JS</code></pre>
+		<pre class="theme-atom-one-dark"><code>// Exécute "maFonction" après un délai de 500 millisecondes
+let myTimeout = setTimeout(maFonction, 500);</code></pre>
+		<pre class="theme-atom-one-dark"><code>clearTimeout(myTimeout); // Annule le délai</code></pre>
+		<!--
 		<pre class="theme-atom-one-dark"><code>$(...).delay(500); // jQuery</code></pre>
-
+		-->
 		<strong>Interval :</strong><br/>
-		<pre class="theme-atom-one-dark"><code>monInterval = setInterval(maFonction, 500); // JS</code></pre>
-		<pre class="theme-atom-one-dark"><code>clearInterval(monInterval); // JS</code></pre>
+		<pre class="theme-atom-one-dark"><code>// Exécute "maFonction" après tous les 500 millisecondes
+monInterval = setInterval(maFonction, 500);</code></pre>
+		<pre class="theme-atom-one-dark"><code>clearInterval(monInterval); // Annule l'appel à la fonction</code></pre>
 
 		<strong>RequestAnimationFrame :</strong><br/>
-		<pre class="theme-atom-one-dark"><code>var reqID = window.requestAnimationFrame(function(){...}); // JS</code></pre>
-		<pre class="theme-atom-one-dark"><code>window.cancelAnimationFrame(reqID); // JS</code></pre>
+		<pre class="theme-atom-one-dark"><code>// Exécute "maFonction" au prochain rendu du navigateur
+var reqID = window.requestAnimationFrame(maFonction);</code></pre>
+		<pre class="theme-atom-one-dark"><code>window.cancelAnimationFrame(reqID); // Annule le prochain appel à "maFonction"</code></pre>
 	</div>
 			<br/>
 			<span class="back">( > Retour au sommaire)</span>
@@ -591,26 +634,22 @@ myElements.each(function( index ){
 	</section>	
 		
 	<section id="anim_2_content" class="content anim_content">
-		<div id="titre_anim_2" class="title_content title_anim">ANIMATION | Effets prédéfinis</div>
+		<div id="titre_anim_2" class="title_content title_anim">ANIMATION | Évènements d'animations</div>
 		<div class="container">
-			<strong>hide() et show() : </strong>Montre ou cache un élément.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').hide(); $('#monElement').show();</code></pre>
-
-			<strong>fadeIn('vitesse' ou durée) : </strong>Fait apparaitre un élément en fondu.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').fadeIn('fast');  // slow, fast, normal ou nombre (ms)</code></pre>
-
-			<strong>fadeOut('vitesse' ou durée) : </strong>Fait disparaitre un élément en fondu.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').fadeOut('fast');  // slow, fast, normal ou nombre (ms)</code></pre>
-
-			<strong>slideUp('vitesse' ou durée) : </strong>Rétracte un élément vers le haut.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').slideUp('fast');  // slow, fast, normal ou nombre (ms)</code></pre>
-
-			<strong>slideDown('vitesse' ou durée) : </strong>Déploie un élément vers le bas.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').slideDown('fast');  // slow, fast, normal ou nombre (ms)</code></pre>
-
-			<strong>slideToggle('vitesse' ou durée) : </strong>Alterne rétracte/déploie.
-			<pre class="theme-atom-one-dark"><code>$('#monElement').slideToggle('fast');  // slow, fast, normal ou nombre (ms)</code></pre>
-			Documentation : <a href="http://api.jquery.com/category/effects/" target="_blank">http://api.jquery.com/category/effects/</a>
+			<strong>Animation Start : </strong>
+			<pre class="theme-atom-one-dark"><code>// Instructions à exécuter lorsque l'animation démarre
+monElement.addEventListener("animationstart", (event) => { });</code></pre>
+			<strong>Animation End : </strong>
+			<pre class="theme-atom-one-dark"><code>// Instructions à exécuter lorsque l'animation se termine
+monElement.addEventListener("animationend", (event) => { });</code></pre>
+			<br/>
+			<strong>Transition Start : </strong>
+			<pre class="theme-atom-one-dark"><code>// Instructions à exécuter lorsque la transition démarre
+monElement.addEventListener("transitionstart", (event) => { });</code></pre>
+			<strong>Transition End : </strong>
+			<pre class="theme-atom-one-dark"><code>// Instructions à exécuter lorsque la transition se termine
+monElement.addEventListener("transitionend", (event) => { });</code></pre>
+			
 		</div>
 			<br/>
 			<span class="back">( > Retour au sommaire)</span>
@@ -618,21 +657,33 @@ myElements.each(function( index ){
 	</section>
 	
 	<section id="anim_3_content" class="content anim_content">
-		<div id="titre_anim_3" class="title_content title_anim">ANIMATION | Fonction Animate()</div>
+		<div id="titre_anim_3" class="title_content title_anim">ANIMATION | GSAP Animation</div>
 		<div class="container">
-		<strong>animate('propriété', 'valeur', 'vitesse' ou durée) :</strong>
-		Cette fonction permet d'animer une propriété CSS d'un élément :
-		<pre class="theme-atom-one-dark"><code>$('#monElement').animate('width', '100px', 300);</code></pre>
+		<strong>Animation avec GSAP :</strong>
+		Il s'agit d'une librairie permettant de créer des animations en javascript.
+		
+		<pre class="theme-atom-one-dark"><code class="language-html">&lt;!-- Ajout de la librairie à la page html --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"&gt;&lt;/script&gt;</code></pre>
+		<pre class="theme-atom-one-dark"><code>// Création d'une tween avec GSAP
+const myAnimation = gsap.to(element, {
+	duration: 1, // durée 1 seconde
+	delai:1, // délai
+	repeat:1, // nombre d'itérations (-1 pour infini) 
+	yoyo:true, //
+	backgroundColor: "red", // background-color
+	fontSize: 12, // font-size
+	boxShadow: "0px 0px 20px 20px red", // animate complex strings
+	borderRadius: "50% 50%",
+	height: "auto"
+});
 
-		<strong>animate({'propriété_1':'valeur_1','propriété_2':'valeur_2'...}, 'vitesse' ou durée) :</strong>
-		...Ou plusieurs à la fois :
-		<pre class="theme-atom-one-dark"><code>$('#monElement').animate({width:'100px', height:'200px'}, 300);</code></pre>
-		Quelques options utiles (duration, progress, complete...) :
-		<pre class="theme-atom-one-dark"><code>$('#monElement').animate({width:'100px'}, {duration:300, complete:maFonction, progress:monAutreFonction});</code></pre>
-
-			
-		Documentation : <a href="http://api.jquery.com/animate/" target="_blank">http://api.jquery.com/animate/</a>
-		</div>
+// Ajout d'écouteurs d'événements sur l'animation
+myAnimation.eventCallback("onStart", myStartFunction, ["param1", "param2"]);
+myAnimation.eventCallback("onUpdate", myUpdateFunction, ["param1", "param2"]);
+myAnimation.eventCallback("onComplete", myCompleteFunction, ["param1", "param2"]);
+</code></pre>
+Documentation : <a href="https://gsap.com/docs/v3/" target="_blank">https://gsap.com/docs/v3/</a>
+	</div>
 		<br/>
 		<span class="back">( > Retour au sommaire)</span>
 	</section>
@@ -644,43 +695,38 @@ myElements.each(function( index ){
 			<section id="event_1_content" class="content event_content">
 				<div id="titre_event_1" class="title_content title_event">ÉVÉNÉMENTS | Souris</div>
 				<div class="container">
-					<pre class="theme-atom-one-dark" ><code>monElement.addEventListener('type', callback, data); // Ajout d'un événement en JS" </code></pre>
+					<pre class="theme-atom-one-dark" ><code>monElement.addEventListener('type', callback); // Ajout d'un événement en JS" </code></pre>
 					<br/>
 					<strong>Événements click, mousemove, mouseenter et mouseleave :</strong><br/>
-					La fonction .on() permet d'écouter des événements, elle s'utilise de la manière suivante :<br/>
-					<pre class="theme-atom-one-dark" ><code>$('#monElement').on('click', function(e){
-		// Action sur le clic de l'élément
-		
-		// $(this) ou e.currentTarget réprésentent l'élément à l'origine de l'événement
+					<!--La fonction .on() permet d'écouter des événements, elle s'utilise de la manière suivante :<br/>-->
+					<pre class="theme-atom-one-dark" ><code>monElement.addEventListener('click', function(event){
+	// Instructions à exécuter au le clic sur l'élément
 	
+	// event.currentTarget réprésentent l'élément à l'origine de l'événement
 });
 
-$('#monElement').on('mousemove', function(e){
-		
-		// Action lorsque le curseur se déplace
-		
-		// $(this) ou e.currentTarget réprésentent l'élément à l'origine de l'événement
-		
-		// e.clientX : Position horizontale du curseur
-		// e.clientY : Position verticale du curseur
+monElement.addEventListener('mousemove', function(event){
+	// Instructions à exécuter lorsque le curseur se déplace
+	
+	// event.currentTarget réprésentent l'élément à l'origine de l'événement
+	
+	// event.clientX : Position horizontale du curseur
+	// event.clientY : Position verticale du curseur
 });
 	
-$('#monElement').on('mouseenter', function(e){
-		// Action au survol de l'élément
-		
-		// $(this) ou e.currentTarget réprésentent l'élément à l'origine de l'événement
+monElement.on('mouseenter', function(event){
+	// Instructions à exécuter au survol de l'élément
+	// event.currentTarget réprésentent l'élément à l'origine de l'événement
 });				
 
-$('#monElement').on('mouseleave', function(e){
-		// Action lorsque le curseur sort de l'élément
-		
-		// $(this) ou e.currentTarget réprésentent l'élément à l'origine de l'événement
+monElement.on('mouseleave', function(event){
+	// Instructions à exécuter lorsque le curseur sort de l'élément
+	// event.currentTarget réprésentent l'élément à l'origine de l'événement
 });</code></pre>
 					<br/>
 					Documentation :
 					<ul>
-						<li><a href="http://api.jquery.com/on/" target="_blank">http://api.jquery.com/on/</a></li>
-						<li><a href="http://api.jquery.com/category/events/mouse-events/" target="_blank">http://api.jquery.com/category/events/mouse-events/</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent</a></li>
 					</ul>
 				<p>Événements tactiles :
 					<ul>
@@ -725,18 +771,20 @@ $('#monElement').on('swiperight', function(){
 			<section id="event_2_content" class="content event_content">
 				<div id="titre_event_2" class="title_content title_event">ÉVÉNÉMENTS | Clavier</div>
 				<div class="container">
-					<strong>Événements keydown() et keyup() :</strong><br/>
-					Là encore, on utilise .on() et .off() pour écouter un événement clavier
-					<pre class="theme-atom-one-dark" ><code>$(window).on('keydown', function(e) // Appelée lorsqu'une touche est enfoncée
+					<strong>Événements keydown et keyup :</strong><br/>
+					Là encore, on utilise addEventListener pour "écouter" un événement clavier
+					<pre class="theme-atom-one-dark" ><code>window.addEventListener('keydown', function(event)
 {
-	// e.key Représente le code de la touche
+	// Instructions à exécuter lorsqu'une touche est enfoncée
+	// event.key Représente le code de la touche
 });
 
-$(window).on('keyup', function(e) // Appelée lorsqu'une touche est relâchée
+window.addEventListener('keyup', function(event)
 {
-	// e.key Représente le code de la touche
+	// Instructions à exécuter lorsqu'une touche est relâchée
+	// event.key Représente le code de la touche
 });</code></pre>
-Correspondance des valeurs de e.key : <br/>
+Correspondance des valeurs de event.key : <br/>
 <pre class="theme-atom-one-dark"><code>DOWN	= 'ArrowDown';
 UP	= 'ArrowUp';
 LEFT	= 'ArrowLeft';
@@ -748,8 +796,9 @@ Echap	= 'Escape';
 Espace	= ' ';</code></pre>
 
 					Documentation :
-					<ul><li><a href="http://api.jquery.com/on/" target="_blank">http://api.jquery.com/on/</a></li>
-<li><a href="http://api.jquery.com/category/events/keyboard-events/" target="_blank">http://api.jquery.com/category/events/keyboard-events/</a></li></ul>
+					<ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/</a></li>
+					</ul>
+
 			</div>
 				<br/>
 				<span class="back">( > Retour au sommaire)</span>
@@ -759,29 +808,24 @@ Espace	= ' ';</code></pre>
 				<div id="titre_event_3" class="title_content title_event">ÉVÉNÉMENTS | Navigateur</div>
 				<div class="container">
 					<strong>Événement resize :</strong>	
-					<pre class="theme-atom-one-dark" ><code>$(window).on('resize', function()
+					<pre class="theme-atom-one-dark" ><code>window.addEventListener('resize', function(event)
 {
-	// Appelé lors du redimensionnement
-	// $(window).width(), représente la largeur de la fenêtre en pixels
-	// $(window).height(), représente la hauteur de la fenêtre en pixels
+	// Instructions à exécuter lors du redimensionnement
+	// window.innerWidth, représente la largeur de la fenêtre en pixels
+	// window.innerHeight, représente la hauteur de la fenêtre en pixels
 
-	if($(window).height() < 600) // (si hauteur inférieure à 600 px)
-	{
-		// Action
-	}else{
-		// Sinon, autre action
-	}
 });</code></pre>
 
 <br/>
 <strong>Événement scroll :</strong>
-					<pre class="theme-atom-one-dark" ><code>$(window).on('scroll', function(){ // Appelé lors du défilement
-	// $(window).scrollTop(), représente la valeur de défilement vertical;
-	// $(window).scrollLeft(), représente la valeur de défilement horizontal;
+					<pre class="theme-atom-one-dark" ><code>window.addEventListener('scroll', function(){
+	// Instructions à exécuter lors du défilement
+	// window.scrollTop, représente la valeur de défilement vertical;
+	// window.scrollLeft, représente la valeur de défilement horizontal;
 });</code></pre>
 					Documentation :
-					<ul><li><a href="http://api.jquery.com/on/" target="_blank">http://api.jquery.com/on/</a></li>
-	<li><a href="http://api.jquery.com/category/events/browser-events/" target="_blank">http://api.jquery.com/category/events/browser-events/</a></li></ul>
+					<ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event</a></li>
+</ul>
 					
 					
 					
@@ -858,7 +902,6 @@ Espace	= ' ';</code></pre>
 		<span class="back">( > Retour au sommaire)</span>
 	</section>
 	-->
-		
 		
 	<div id="ui_container">
 		<div id="tip">Survol</div>
