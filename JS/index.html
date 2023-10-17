@@ -472,7 +472,8 @@ let mesElements = document.querySelectorAll('selecteur css')
 
 // Methode 1 : convertir la collections d'éléments HTML en tableau
 Array.from(myElements).forEach((item, index)=>{
-	//Insctructions à exécter pour chacun des éléments de la liste
+	
+	//Insctructions à exécuter pour chacun des éléments de la liste
 	// item représente l'élément courrant
 	// index représente la position de l'élément dans la liste
 
@@ -482,7 +483,6 @@ Array.from(myElements).forEach((item, index)=>{
 console.log("METHODE 2");
 // Methode 2 : utiliser la méthode "for ... of"
 for(item of myElements){
-	//Insctructions à exécter pour chacun des éléments de la liste
 	// item représente l'élément courrant
 	console.log(item);
 };
