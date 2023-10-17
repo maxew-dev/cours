@@ -467,16 +467,32 @@ let mesElements = document.querySelectorAll('selecteur css')
 	<section id="jquery_2_content" class="content jquery_content">
 		<div id="titre_jquery_2" class="title_content title_jquery">HTML & CSS | Parcours des HTML sélectionnés</div>
 		<div class="container">
-			<strong>forEach :</strong> La méthode "forEach" permet de parcourir la liste des éléments sélectionnés :
+			<strong>Parcours des éléments d'une HTMLCollection</strong>
 			<pre class="theme-atom-one-dark"><code>let myElements = document.querySelectorAll(".item");
 
-myElements.forEach((item, index)=>{
+// Methode 1 : convertir la collections d'éléments HTML en tableau
+Array.from(myElements).forEach((item, index)=>{
 	//Insctructions à exécter pour chacun des éléments de la liste
 	// item représente l'élément courrant
 	// index représente la position de l'élément dans la liste
 
-	console.log(index, item);
-});</code></pre>
+	console.log(item, index);
+});
+
+console.log("METHODE 2");
+// Methode 2 : utiliser la méthode "for ... of"
+for(item of myElements){
+	//Insctructions à exécter pour chacun des éléments de la liste
+	// item représente l'élément courrant
+	console.log(item);
+};
+
+console.log("METHODE 3");
+
+//Méthode 3 : utiliser une boucle classique
+for(let i=0; i&lt;myElements.length; i++){
+	console.log(myElements[i]);
+}</code></pre>
 
 <!--
 <strong>jQuery :</strong>
